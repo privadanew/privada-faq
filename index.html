@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIVADA - FAQ</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #333; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .header { text-align: center; margin-bottom: 40px; color: white; }
+        .header h1 { font-size: 3em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .header p { font-size: 1.2em; opacity: 0.9; }
+        .faq-container { background: rgba(255,255,255,0.95); border-radius: 20px; padding: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); backdrop-filter: blur(10px); }
+        .faq-section { margin-bottom: 30px; }
+        .section-title { font-size: 1.5em; color: #667eea; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #667eea; }
+        .faq-item { margin-bottom: 15px; background: #f8f9fa; border-radius: 10px; overflow: hidden; transition: all 0.3s ease; }
+        .faq-item:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .question { background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 15px 20px; cursor: pointer; position: relative; }
+        .question:after { content: '+'; position: absolute; right: 20px; font-size: 1.5em; transition: transform 0.3s ease; }
+        .question.active:after { transform: rotate(45deg); }
+        .answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: all 0.3s ease; background: white; }
+        .answer.active { padding: 20px; max-height: 200px; }
+        .contact { text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(45deg, #667eea, #764ba2); color: white; border-radius: 15px; }
+        .contact a { color: #fff; text-decoration: none; font-weight: bold; }
+        @media (max-width: 768px) { 
+            .header h1 { font-size: 2em; }
+            .container { padding: 10px; }
+            .faq-container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>PRIVADA</h1>
+            <p>Frequently Asked Questions</p>
+        </div>
+        
+        <div class="faq-container">
+            <div class="faq-section">
+                <h2 class="section-title">General Questions</h2>
+                <div class="faq-item">
+                    <div class="question" onclick="toggle(this)">What is PRIVADA?</div>
+                    <div class="answer">PRIVADA is a social media platform designed to connect you with friends, family, and communities that share your interests. It allows you to share updates, photos, videos, and engage in discussions.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="question" onclick="toggle(this)">What makes PRIVADA different?</div>
+                    <div class="answer">We focus on fostering authentic connections and providing a safer online environment. We prioritize user privacy and mental well-being above all else.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="question" onclick="toggle(this)">Is PRIVADA free to use?</div>
+                    <div class="answer">Yes, PRIVADA is free to download and use. We may offer optional premium features in the future, but core functionality will always remain free.</div>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h2 class="section-title">Account & Profile</h2>
+                <div class="faq-item">
+                    <div class="question" onclick="toggle(this)">How do I create an account?</div>
+                    <div class="answer">Download the app and follow the on-screen instructions to create your account.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="question" onclick="toggle(this)">How do I edit my profile?</div>
+                    <div class="answer">Go to your profile page and tap "Edit Profile" to update your name, bio, profile picture, and cover photo.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="question" onclick="toggle(this)">How do I reset my password?</div>
+                    <div class="answer">Tap "Forgot Password" on the login screen, answer security questions, and follow the reset instructions.</div>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h2 class="section-title">Using the App</h2>
+                <div class="faq-item">
+                    <div class="question" onclick="toggle(this)">How do I find friends?</div>
+                    <div class="answer">Search for their name or username in the search bar, or connect through your contact list.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="question" onclick="toggle(this)">How do I post content?</div>
+                    <div class="answer">Tap the "+" button on the main screen to create a new post with text, photos, videos, and other content.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="question" onclick="toggle(this)">How do I send private messages?</div>
+                    <div class="answer">Go to someone's profile, tap "Invite", and once accepted, you can send messages through the messaging interface.</div>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h2 class="section-title">Privacy & Security</h2>
+                <div class="faq-item">
+                    <div class="question" onclick="toggle(this)">How is my data protected?</div>
+                    <div class="answer">We take data security seriously. PRIVADA does not collect user data - only geolocation is collected. See our Privacy Policy for details.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="question" onclick="toggle(this)">How do I report inappropriate content?</div>
+                    <div class="answer">Tap the "Report" button on any post or profile that violates our community guidelines.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="question" onclick="toggle(this)">How do I block someone?</div>
+                    <div class="answer">Go to their profile and tap "Block" to prevent them from seeing your content and contacting you.</div>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h2 class="section-title">Troubleshooting</h2>
+                <div class="faq-item">
+                    <div class="question" onclick="toggle(this)">The app is crashing</div>
+                    <div class="answer">Try restarting the app or device. Ensure you have the latest version installed. Contact support if problems persist.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="question" onclick="toggle(this)">I'm not receiving notifications</div>
+                    <div class="answer">Check notification settings in both the app and your device settings to ensure notifications are enabled for PRIVADA.</div>
+                </div>
+            </div>
+
+            <div class="contact">
+                <h3>Need More Help?</h3>
+                <p>Contact our support team at <a href="mailto:support@privadaapp.com">support@privadaapp.com</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggle(element) {
+            const answer = element.nextElementSibling;
+            const isActive = answer.classList.contains('active');
+            
+            // Close all other answers
+            document.querySelectorAll('.answer.active').forEach(a => {
+                a.classList.remove('active');
+                a.previousElementSibling.classList.remove('active');
+            });
+            
+            // Toggle current answer
+            if (!isActive) {
+                answer.classList.add('active');
+                element.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
